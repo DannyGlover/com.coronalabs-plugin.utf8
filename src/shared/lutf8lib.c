@@ -1305,6 +1305,9 @@ LUALIB_API int luaopen_plugin_utf8(lua_State *L) {
 
   lua_pushliteral(L, UTF8PATT);
   lua_setfield(L, -2, "charpattern");
+  
+  lua_pushnumber(L, 1.0);
+  lua_setfield(L, -2, "version");
 
   return 1;
 }
