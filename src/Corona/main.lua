@@ -1,6 +1,7 @@
 -- Copyright (c) 2013 Corona Labs Inc. All Rights Reserved.
 
-local utf8 = require("plugin.utf8")
+local json = require "json"
+
 local g = display.newGroup()
 
 local title = display.newText( "hello, UTF8!", 0, 0, native.systemFont, 40 )
@@ -10,7 +11,7 @@ title:setTextColor( 233, 137, 38 )
 
 g:insert(title)
 
-local directions = display.newText( "Solar2D v" .. system.getInfo("build"), 0, 0, 300, 0, "Helvetica", 15 )
+local directions = display.newText( "CoronaSDK "..system.getInfo("build"), 0, 0, 300, 0, "Helvetica", 15 )
 directions.anchorY = 0
 directions.x = display.contentWidth / 2
 directions.y = title.y + title.height + 10
@@ -23,6 +24,8 @@ local function display( str )
 	directions.text = directions.text .. "\n" .. tostring(str)
 end
 
+
+local utf8 = require("plugin.utf8")
 display("utf8 version: ".. tostring(utf8.version))
 display("")
 
@@ -38,10 +41,6 @@ local string = "ĤĦǢàæåƍƛȡȥ"
 display("Lua: " .. string .. " --> " .. string.upper(string))
 display("UTF8: " .. string .. " --> " .. utf8.upper(string))
 
-local string = "⌘⌦⎆😆😎"
-display("Lua: " .. string .. " --> " .. string.upper(string))
-display("UTF8: " .. string .. " --> " .. utf8.upper(string))
-
-local string = "Tiësto"
-display("Lua: " .. string .. " --> " .. string.upper(string))
-display("UTF8: " .. string .. " --> " .. utf8.upper(string))
+-- local string = "⌘⌦⎆😆😎"
+-- -- display("Lua: " .. string .. " --> " .. string.upper(string))
+-- -- display("UTF8: " .. string .. " --> " .. utf8.upper(string))
